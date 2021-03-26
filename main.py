@@ -2,44 +2,21 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import module
+import fonction
+import re
 
-links = []
-livres = []
 
-url_page = 'http://books.toscrape.com/catalogue/category/books/travel_2/index.html'
+url_categorie = 'http://books.toscrape.com/'
 
-reponse = requests.get(url_page)
-if reponse.ok:
-    soup = BeautifulSoup(reponse.text, 'html.parser')
-    articles = soup.findAll('article')
+categories = fonction.All_categories(url_categorie)
 
-    for article in articles:
-        a = article.find('a')
-        link = a['href']
-        link = link.replace('../../../', '')
-        links.append('http://books.toscrape.com/catalogue/' + link)
-else:
-    print("Vous n'avez pas accès à cette page")
+url_page = fonction.category_pages_url(url_categorie, categories) #récupère tout les urls de toute les pages d'une catégorie
+
+fonction.get_full_category_bookslink(url_page) #récupère tout les liens des livres de toute les pages d'une catégorie
+
+fonction.get_infos_book(links) # récupère les informations de tout les livres
 
 
 
-
-
-
-for n in range(len(links)):
-
-    url = links[n]
-
-    reponse = requests.get(url)
-    if reponse.ok:
-        soup = BeautifulSoup(reponse.text, 'html.parser')
-
-
-        livres.append(module.livre(soup, url))
-
-for a in livres:
-    print(a.infos)
-
-        #livre1.save_CSV()
 
 
