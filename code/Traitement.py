@@ -34,7 +34,6 @@ class Traitement:
         if number_of_page == '':
             number_of_page = 1
 
-        print(number_of_page)
         return number_of_page
 
     def traitement_soup_category(self):
