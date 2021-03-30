@@ -1,11 +1,11 @@
 import re
 
-class Traitement :
+
+class Traitement:
 
     def __init__(self, soup):
 
         self.soup = soup
-
 
     def traitement_soup_livres(self, url):
 
@@ -20,6 +20,7 @@ class Traitement :
         category = self.soup.findAll('a')[3].string
         review_rating = self.soup.findAll('td')[6].string
         image_url = self.soup.findAll('img')[0]['src']
+        image_url = image_url.replace('../../', 'http://books.toscrape.com/')
 
         infos = [product_page_url, universal_product_code, title, price_including_tax,
                  prince_excluding_tax,
@@ -36,7 +37,6 @@ class Traitement :
         print(number_of_page)
         return number_of_page
 
-
     def traitement_soup_category(self):
 
         articles = self.soup.findAll('article')
@@ -51,7 +51,6 @@ class Traitement :
 
         return Books_links
 
-
     def traitement_soup_PagePrincipal(self):
         categories = []
         ul = self.soup.findAll('ul')[1]
@@ -59,7 +58,7 @@ class Traitement :
         a.pop(0)
 
         for counter, categorie in enumerate(a):
-            #name = re.sub('[\s]', '', str(categorie.string))
+            # name = re.sub('[\s]', '', str(categorie.string))
             link = a[counter]['href']
             link = link.replace('../', '')
             link = link.replace('index.html', '')

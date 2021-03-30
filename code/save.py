@@ -1,7 +1,9 @@
 import csv
 import os
+from extract import *
 
-class save :
+
+class save:
 
     def __init__(self, infos):
 
@@ -20,3 +22,7 @@ class save :
                     ['number_available'] + ['product_description'] + ['category'] + ['review_rating'] + ['image_url'])
 
             spamwriter.writerow([self.infos])
+
+        with open('data\\' + infos[2] + ".jpg", "wb") as f:
+            a = extract(infos[9])
+            f.write(a.get_url_to_download())

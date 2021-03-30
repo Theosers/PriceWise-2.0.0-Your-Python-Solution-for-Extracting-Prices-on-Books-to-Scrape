@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-class extract :
+
+class extract:
 
     def __init__(self, url):
         self.url = url
@@ -17,4 +18,7 @@ class extract :
             print("non")
         self.soup = soup
 
+    def get_url_to_download(self):
 
+        reponse = requests.get(self.url, stream=True)
+        return reponse.content
