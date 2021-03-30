@@ -15,7 +15,7 @@ class extract :
 
         reponse = requests.get(self.url)
         if reponse.ok:
-            soup = BeautifulSoup(reponse.text, 'html.parser')
+            soup = BeautifulSoup(reponse.content, 'html.parser')
 
         else:
             print("non")
@@ -32,6 +32,7 @@ class Traitement :
 
     def traitement_soup_livres(self, url):
 
+        infos = []
         product_page_url = url
         universal_product_code = self.soup.findAll('td')[0].string
         title = self.soup.findAll('h1')[0].string
@@ -60,7 +61,6 @@ class Traitement :
 
 
     def traitement_soup_category(self):
-
 
         articles = self.soup.findAll('article')
         Books_links = []
@@ -97,10 +97,10 @@ class save :
 
         self.infos = infos
 
-        with open('eggs.csv', 'a', newline='') as csvfile:
+        with open('../data/eggs.csv', 'w', newline='', encoding='utf-8-sig') as csvfile:
             spamwriter = csv.writer(csvfile, delimiter=' ',
                                     quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            if os.path.getsize("eggs.csv") == 0:
+            if os.path.getsize("../data/eggs.csv") == 0:
                 spamwriter.writerow(
                     ['product_page_url'] + ['universal_product_code'] + ['title'] + ['price_including_tax'] + [
                         'prince_excluding_tax'] +
