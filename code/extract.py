@@ -15,7 +15,8 @@ class extract:
             soup = BeautifulSoup(reponse.content, 'html.parser')
 
         else:
-            print("non")
+            with open('log.txt', 'w', encoding='utf-8') as erreur:
+                erreur.write('Désolé, nous n\'avons pas eu accès à l\'url :' + self.url)
         self.soup = soup
 
     def get_url_to_download(self):
