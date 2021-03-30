@@ -1,4 +1,6 @@
-from module import *
+from Traitement import *
+from save import *
+from extract import *
 
 url = 'http://books.toscrape.com/index.html'
 extraire_PagePrincipal = extract(url)
