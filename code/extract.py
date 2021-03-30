@@ -20,6 +20,5 @@ class extract:
         self.soup = soup
 
     def get_url_to_download(self):
-
         reponse = requests.get(self.url, stream=True)
         return reponse.content

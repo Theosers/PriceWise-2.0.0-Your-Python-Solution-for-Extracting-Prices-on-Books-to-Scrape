@@ -23,6 +23,6 @@ class save:
 
             spamwriter.writerow([self.infos])
 
-        with open('data\\' + infos[2] + ".jpg", "wb") as f:
+        with open('data\\' + infos[2].translate({ord(i): None for i in '<>:"“\|?/*'}) + ".jpg", "wb") as f:
             a = extract(infos[9])
             f.write(a.get_url_to_download())
