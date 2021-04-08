@@ -35,6 +35,9 @@ Exécuter BS :
 
 Aller dans le dossier P2-POO 
 
+```
 cd code
-
+```
+```
 python main.py
+```
