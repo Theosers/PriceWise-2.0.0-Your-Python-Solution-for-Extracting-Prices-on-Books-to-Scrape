@@ -33,6 +33,8 @@ pip install -r requirements.txt
 
 Exécuter BS :
 
-Aller dans le dossier P2-POO
+Aller dans le dossier P2-POO 
+
 cd code
+
 python main.py
