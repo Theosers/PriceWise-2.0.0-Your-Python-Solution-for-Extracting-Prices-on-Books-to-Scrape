@@ -1,7 +1,7 @@
 # BS 2.0.0 (Books Scraper)
 ## Table of Contents
 1. [General Info](#general-info)
-2. [Comment utiliser ce dépôt](#Comment utiliser ce dépôt)
+2. [Comment utiliser ce dépôt]
 
 ### General Info
 ***
