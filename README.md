@@ -1,4 +1,4 @@
-# BS 2.0.0 (Books Scraper)
+# BS 1.2.0 (Books Scraper)
 ## Table of Contents
 1. General Info
 2. Comment utiliser ce dépôt
@@ -29,9 +29,10 @@ Puis télécharge et enregistre le fichier image de chaque produit.
 ***
 Installer toutes les dépendances :
 
-pip install -r data/requirements.txt
+pip install -r requirements.txt
 
 Exécuter BS :
 
+Aller dans le dossier P2-POO
 cd code
 python main.py
