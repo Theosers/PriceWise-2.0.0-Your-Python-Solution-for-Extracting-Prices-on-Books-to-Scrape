@@ -62,6 +62,6 @@ class Traitement:
             link = link.replace('../', '')
             link = link.replace('index.html', '')
             link = 'http://books.toscrape.com/' + link
-            categories.append((link))  # On obtient un tuple contenant le nom de la catégorie et son lien relatif
+            categories.append((link))
 
         return categories
