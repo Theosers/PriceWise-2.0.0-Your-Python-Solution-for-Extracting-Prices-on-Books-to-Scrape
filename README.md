@@ -31,18 +31,14 @@ Puis télécharge et enregistre le fichier image de chaque produit.
 ## Comment utiliser ce dépôt
 
 ***
-Installer toutes les dépendances :
-
+Dans un nouvel environnement virtuel, installer toutes les dépendances :
+```
 pip install -r requirements.txt
-
+```
 Exécuter BS :
 
-Aller dans le dossier P2-POO
+Aller dans le dossier P2-POO puis lancer le launcher.sh 
 
 ```
-cd code
-```
-
-```
-python main.py
+sh launcher.sh
 ```
