@@ -1,35 +1,35 @@
-from process import *
-from save import *
-from extract import *
+from process import Process
+from save import Save
+from extract import Extract
 
 if __name__ == "__main__":
 
     url = 'http://books.toscrape.com/index.html'
 
-    extraire_PagePrincipal = extract(url)
-    extraire_PagePrincipal.get_soup()
-    Traiter_PagePrincipal = Traitement(extraire_PagePrincipal.soup)
+    extractMainPage = Extract(url)
+    extractMainPage.get_soup()
+    mainPageProcess = Process(extractMainPage.soup)
 
-    for counter, category in enumerate(Traiter_PagePrincipal.traitement_soup_PagePrincipal()):
+    for counter, category in enumerate(mainPageProcess.soup_PagePrincipal_process()):
 
-        extraire_category = extract(category)
-        extraire_category.get_soup()
-        Traiter_category = Traitement(extraire_category.soup)
+        category_extract = Extract(category)
+        category_extract.get_soup()
+        category_process = Process(category_extract.soup)
 
-        for page in range(1, int(Traiter_category.number_of_page()) + 1):
+        for page in range(1, int(category_process.number_of_page()) + 1):
 
             if page == 1:
-                extraire_page = extract(extraire_category.url + 'index' + '.html')
+                page_extract = Extract(category_extract.url + 'index' + '.html')
             else:
-                extraire_page = extract(extraire_category.url + 'page-' + str(page) + '.html')
+                page_extract = Extract(category_extract.url + 'page-' + str(page) + '.html')
 
-            extraire_page.get_soup()
-            Traiter_category = Traitement(extraire_page.soup)
+            page_extract.get_soup()
+            category_process = Process(page_extract.soup)
 
-            for counter, book in enumerate(Traiter_category.traitement_soup_category()):
-                extraire_livre = extract(book)
-                extraire_livre.get_soup()
+            for counter, book in enumerate(category_process.soup_category_process()):
+                book_extract = Extract(book)
+                book_extract.get_soup()
 
-                Traiter_livre = Traitement(extraire_livre.soup)
+                book_process = Process(book_extract.soup)
 
-                save(Traiter_livre.traitement_soup_livres(book))
+                Save(book_process.books_soup_process(book))

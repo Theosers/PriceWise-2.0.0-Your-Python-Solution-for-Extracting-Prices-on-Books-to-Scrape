@@ -1,9 +1,9 @@
 import csv
 import os
-from extract import *
+from extract import Extract
 
 
-class save:
+class Save:
 
     def __init__(self, infos):
 
@@ -15,7 +15,7 @@ class save:
         with open('data\product.csv', 'a', newline='', encoding='utf-8-sig') as csvfile:
             spamwriter = csv.writer(csvfile, delimiter=' ',
                                     quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            if os.path.getsize("data\pproduct.csv") == 0:
+            if os.path.getsize("data\product.csv") == 0:
                 spamwriter.writerow(
                     ['product_page_url'] + ['universal_product_code'] + ['title'] + ['price_including_tax'] + [
                         'prince_excluding_tax'] +
@@ -24,5 +24,5 @@ class save:
             spamwriter.writerow([self.infos])
 
         with open('data\\' + infos[2].translate({ord(i): None for i in '<>:"“\|?/*'}) + ".jpg", "wb") as f:
-            a = extract(infos[9])
+            a = Extract(infos[9])
             f.write(a.get_url_to_download())

@@ -1,15 +1,15 @@
 import re
 
 
-class Traitement:
+class Process:
 
     def __init__(self, soup):
 
         self.soup = soup
 
-    def traitement_soup_livres(self, url):
+    def books_soup_process(self, url):
 
-        infos = []
+
         product_page_url = url
         universal_product_code = self.soup.findAll('td')[0].string
         title = self.soup.findAll('h1')[0].string
@@ -36,7 +36,7 @@ class Traitement:
 
         return number_of_page
 
-    def traitement_soup_category(self):
+    def soup_category_process(self):
 
         articles = self.soup.findAll('article')
         Books_links = []
@@ -50,7 +50,7 @@ class Traitement:
 
         return Books_links
 
-    def traitement_soup_PagePrincipal(self):
+    def soup_PagePrincipal_process(self):
         categories = []
         ul = self.soup.findAll('ul')[1]
         a = ul.findAll('a')
