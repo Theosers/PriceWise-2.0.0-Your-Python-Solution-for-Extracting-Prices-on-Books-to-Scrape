@@ -1,4 +1,4 @@
-from Traitement import *
+from process import *
 from save import *
 from extract import *
 
