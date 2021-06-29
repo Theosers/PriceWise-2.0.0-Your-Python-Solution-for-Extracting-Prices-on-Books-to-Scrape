@@ -3,41 +3,41 @@
 ## Table of Contents
 
 1. General Info
-2. Comment utiliser ce dépôt
+2. How to use this repository
 
 ### General Info
 
 ***
 
-Ceci est la version béta du programme d'extraction de prix BS 2.0.0, développé en Python, dont le but est d'extraire les
-informations tarifaires du site Books to Scrape (http://books.toscrape.com/). La première version de ce programme est
-disponible ici (https://github.com/Theosers/P2)
+This is the beta version of the price extraction program BS 2.0.0, developed in Python.
+The goal is to extract all kind of informations on the website Books to Scrape (http://books.toscrape.com/). 
 
-Récupère à l'execution les données suivante pour chaque produit (stocker dans un fichier produits.csv) :
+The informations are ( store in the file product.csv) :
 
 - Url
-- Code produit universel (upc)
-- Titre
-- Prix incluant les taxes
-- Prix expluant les taxes
-- Nombre d'ouvrages disponibles
+- Universal product code (upc)
+- Title
+- Price including taxes
+- Price excluding taxes
+- Number of books available
 - Description
-- Catégorie
-- Note des avis
-- Url de l'image
+- Catégory
+- Note of the reviews
+- Url of the picture
 
-Puis télécharge et enregistre le fichier image de chaque produit.
 
-## Comment utiliser ce dépôt
+Then download and save the image file of each product.
+
+## How to use this repository
 
 ***
-Dans un nouvel environnement virtuel, installer toutes les dépendances :
+In a new virtual environment, install all dependency :
 ```
 pip install -r requirements.txt
 ```
-Exécuter BS :
+To execute BS :
 
-Aller dans le dossier P2-POO puis lancer le launcher.sh 
+launch the launcher.sh 
 
 ```
 sh launcher.sh
