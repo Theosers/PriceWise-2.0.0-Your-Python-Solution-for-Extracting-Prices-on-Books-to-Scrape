@@ -2,14 +2,22 @@ import re
 
 
 class Process:
+    """
+    Processes data from a web page in html form to extract relevant information.
+    Args:
+        soup(bs4.BeautifulSoup)
+    """
 
     def __init__(self, soup):
 
         self.soup = soup
 
     def books_soup_process(self, url):
+        """
 
-
+        :param url: url from the web page of a book
+        :return: relevant information about the book (list)
+        """
         product_page_url = url
         universal_product_code = self.soup.findAll('td')[0].string
         title = self.soup.findAll('h1')[0].string
@@ -29,7 +37,10 @@ class Process:
         return infos
 
     def number_of_page(self):
+        """
 
+        :return: the number of book pages that exist in a book category (int)
+        """
         number_of_page = re.sub('[1\D]', '', str(self.soup.findAll('li')[-2].string))
         if number_of_page == '':
             number_of_page = 1
@@ -37,7 +48,10 @@ class Process:
         return number_of_page
 
     def soup_category_process(self):
-
+        """
+        retrieves all book links from a page in a book category
+        :return: books links (list)
+        """
         articles = self.soup.findAll('article')
         Books_links = []
 
@@ -51,17 +65,20 @@ class Process:
         return Books_links
 
     def soup_PagePrincipal_process(self):
+        """
+
+        :return: categories listed on the main page (list)
+        """
         categories = []
         ul = self.soup.findAll('ul')[1]
         a = ul.findAll('a')
         a.pop(0)
 
         for counter, categorie in enumerate(a):
-            # name = re.sub('[\s]', '', str(categorie.string))
             link = a[counter]['href']
             link = link.replace('../', '')
             link = link.replace('index.html', '')
             link = 'http://books.toscrape.com/' + link
-            categories.append((link))  # On obtient un tuple contenant le nom de la catégorie et son lien relatif
+            categories.append((link))
 
         return categories

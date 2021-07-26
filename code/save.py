@@ -4,6 +4,21 @@ from extract import Extract
 
 
 class Save:
+    """
+    1.Retrieves and saves the following data in a csv file:
+    - product_page_url
+    -universal_product_code
+    -title
+    -price_including_tax
+    -prince_excluding_tax
+    -number_available
+    -product_description
+    -category
+    -review_rating
+    -image_url
+
+    2.Then the image of each book is extracted from the image url and saved in a jpg file
+    """
 
     def __init__(self, infos):
 

@@ -26,10 +26,15 @@ if __name__ == "__main__":
             page_extract.get_soup()
             category_process = Process(page_extract.soup)
 
-            for counter, book in enumerate(category_process.soup_category_process()):
+            for counter2, book in enumerate(category_process.soup_category_process()):
                 book_extract = Extract(book)
                 book_extract.get_soup()
 
                 book_process = Process(book_extract.soup)
 
                 Save(book_process.books_soup_process(book))
+
+                print(f"{counter} categories on {len(mainPageProcess.soup_PagePrincipal_process())} extracted")
+                print(f"----------------------------------------------")
+                print(f"{int(counter / len(mainPageProcess.soup_PagePrincipal_process()) * 100)}% data extracted")
+                print(f"----------------------------------------------\n")
