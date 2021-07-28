@@ -14,20 +14,17 @@ class Extract:
         self.url = url
         self.soup = None
 
-
     def get_soup(self):
         """
         Get the code of a web page and save it as html
         """
         response = requests.get(self.url)
         if response.ok:
-            soup = BeautifulSoup(response.content, 'html.parser')
+            self.soup = BeautifulSoup(response.content, 'html.parser')
 
         else:
             with open('log.txt', 'w', encoding='utf-8') as error:
                 error.write('Sorry, we did not have access to the url :' + self.url)
-        self.soup = soup
-
 
     def get_url_to_download(self):
         """

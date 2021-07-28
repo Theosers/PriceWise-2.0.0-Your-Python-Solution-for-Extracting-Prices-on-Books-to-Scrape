@@ -16,12 +16,12 @@ if __name__ == "__main__":
         category_extract.get_soup()
         category_process = Process(category_extract.soup)
 
-        for page in range(1, int(category_process.number_of_page()) + 1):
+        for page in range(1, category_process.number_of_page() + 1):
 
             if page == 1:
-                page_extract = Extract(category_extract.url + 'index' + '.html')
+                page_extract = Extract(f"{category_extract.url}index.html")
             else:
-                page_extract = Extract(category_extract.url + 'page-' + str(page) + '.html')
+                page_extract = Extract(f"{category_extract.url}page-{str(page)}.html")
 
             page_extract.get_soup()
             category_process = Process(page_extract.soup)

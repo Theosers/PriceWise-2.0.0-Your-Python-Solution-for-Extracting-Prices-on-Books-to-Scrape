@@ -19,21 +19,19 @@ class Process:
         :return: relevant information about the book (list)
         """
         product_page_url = url
-        universal_product_code = self.soup.findAll('td')[0].string
-        title = self.soup.findAll('h1')[0].string
+        universal_product_code = self.soup.find('td').string
+        title = self.soup.find('h1').string
         price_including_tax = self.soup.findAll('td')[3].string
         prince_excluding_tax = self.soup.findAll('td')[2].string
         number_available = self.soup.findAll('td')[5].string
         product_description = self.soup.findAll('p')[3].string
         category = self.soup.findAll('a')[3].string
         review_rating = self.soup.findAll('td')[6].string
-        image_url = self.soup.findAll('img')[0]['src']
+        image_url = self.soup.find('img')['src']
         image_url = image_url.replace('../../', 'http://books.toscrape.com/')
 
-        infos = [product_page_url, universal_product_code, title, price_including_tax,
-                 prince_excluding_tax,
-                 number_available, product_description, category, review_rating,
-                 image_url]
+        infos = [product_page_url, universal_product_code, title, price_including_tax, prince_excluding_tax,
+                 number_available, product_description, category, review_rating, image_url]
         return infos
 
     def number_of_page(self):
@@ -42,10 +40,11 @@ class Process:
         :return: the number of book pages that exist in a book category (int)
         """
         number_of_page = re.sub('[1\D]', '', str(self.soup.findAll('li')[-2].string))
+
         if number_of_page == '':
             number_of_page = 1
 
-        return number_of_page
+        return int(number_of_page)
 
     def soup_category_process(self):
         """
@@ -74,7 +73,7 @@ class Process:
         a = ul.findAll('a')
         a.pop(0)
 
-        for counter, categorie in enumerate(a):
+        for counter, category in enumerate(a):
             link = a[counter]['href']
             link = link.replace('../', '')
             link = link.replace('index.html', '')

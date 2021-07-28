@@ -32,9 +32,9 @@ class Save:
                                     quotechar='|', quoting=csv.QUOTE_MINIMAL)
             if os.path.getsize("data\product.csv") == 0:
                 spamwriter.writerow(
-                    ['product_page_url'] + ['universal_product_code'] + ['title'] + ['price_including_tax'] + [
-                        'prince_excluding_tax'] +
-                    ['number_available'] + ['product_description'] + ['category'] + ['review_rating'] + ['image_url'])
+                    ['product_page_url', 'universal_product_code', 'title', 'price_including_tax',
+                     'prince_excluding_tax',
+                     'number_available', 'product_description', 'category', 'review_rating', 'image_url'])
 
             spamwriter.writerow([self.infos])
 
