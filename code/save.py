@@ -27,7 +27,7 @@ class Save:
         if not os.path.exists('data'):
             os.makedirs('data')
 
-        with open('data\product.csv', 'a', newline='', encoding='utf-8-sig') as csvfile:
+        with open('data/product.csv', 'a', newline='', encoding='utf-8-sig') as csvfile:
             spamwriter = csv.writer(csvfile, delimiter=' ',
                                     quotechar='|', quoting=csv.QUOTE_MINIMAL)
             if os.path.getsize("data\product.csv") == 0:
