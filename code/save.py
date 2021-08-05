@@ -30,7 +30,7 @@ class Save:
         with open('data/product.csv', 'a', newline='', encoding='utf-8-sig') as csvfile:
             spamwriter = csv.writer(csvfile, delimiter=' ',
                                     quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            if os.path.getsize("data\product.csv") == 0:
+            if os.path.getsize("data/product.csv") == 0:
                 spamwriter.writerow(
                     ['product_page_url', 'universal_product_code', 'title', 'price_including_tax',
                      'prince_excluding_tax',
