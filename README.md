@@ -32,7 +32,7 @@ Then download and save the image file of each product.
 
 ***
 
-This program will require python 3 installed : https://www.python.org/downloads/
+This program will require python 3.9.6 installed : https://www.python.org/downloads/
 
 In a new virtual environment, install all dependency :
 ```
