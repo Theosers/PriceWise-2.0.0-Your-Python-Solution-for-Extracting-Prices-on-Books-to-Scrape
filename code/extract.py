@@ -32,4 +32,8 @@ class Extract:
         :return: the content of the web page (the data of an image)
         """
         response = requests.get(self.url, stream=True)
-        return response.content
+        if response.ok:
+            return response.content
+        else:
+            with open('log.txt', 'w', encoding='utf-8') as error:
+                error.write('Sorry, we did not have access to the url :' + self.url)
