@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo En cours d\'execution...
-if [ "$(uname)" == "MAC" ]; then
+if [ "$(uname)" == "Darwin" ]; then
     python3 code/main.py       
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     python3 code/main.py 
