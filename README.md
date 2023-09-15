@@ -1,4 +1,4 @@
-# BS 1.2.0 (Books Scraper)
+# PriceWise-2.0.0(Books Scraper)
 
 ## Table of Contents
 
